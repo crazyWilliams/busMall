@@ -6,3 +6,12 @@ div.left_image{
 body{
   background-color: rgb(172, 233, 144);
 }
+main {
+  width: 960px;
+  margin: auto;
+  border: 25px solid black;
+}
+
+img {
+  background-color: blue;
+}

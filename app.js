@@ -33,47 +33,72 @@ name: name of pic,
 // counter for num of clicks
 var likeCounter = 0;
 var allImages = [];
+var allImagesOnPage = [];
+var currentImage;
+
+var leftImage = document.getElementById('leftImagePosition');
+ var rightImage = document.getElementById('rightImagePosition');
+ var centerImage = document.getElementById('centerImagePosition');
+ var productList = document.getElementById('imagesList');
+ allImagesOnPage.push(leftImage);
+ allImagesOnPage.push(rightImage);
+ allImagesOnPage.push(centerImage);
 
 //==========================================================//
 //   Constructor
 // =========================================================//
 
-var imageInfo = function(url, name){
-  
-  this.imageUrl = url;
+var imageInfo = function(name, filePath, description){
   this.name = name;
-  this.clicks = 0;
-
-  allImages.push(this);
+  this.filePath = filePath;
+  // this.timesShown = 0;
+  // this.timesClicked = 0;
+  // this.description = description;
+allImages.push(this);
 };
 
+
 //==============================================================//
-//   Initialize the Page
+//   Add list to page
 //==============================================================//
- var leftImage = document.getElementById('leftImagePosition');
- var rightImage = document.getElementById('right_image');
- var centerImage = document.getElementById('center_image');
+
+function renderList (){
+  for (var m in allImages){
+    var imagesList = document.createElement('imagesList');
+    imagesList.textContent = allImages[m].timesClicked + ' votes for ' + allImages[m].description;
+    productList.appendChild(imagesList);
+  }
+};
+//==============================================================//
+//   Initialize the Page ( DOM's putting work on html)
+//==============================================================//
+ 
 
 function handleClickOnLeftImage(event){
   //adding clicks
+  
   likeCounter++;
   var rightImageIndex = Math.floor(Math.random() * allImages.length);
   var leftImageIndex = Math.floor(Math.random() * allImages.length);
   var centerImageIndex = Math.floor(Math.random() * allImages.length);
   
-var left_Image = allImages[leftImageIndex];
-var right_Image = allImages[rightImageIndex];
-var center_Image = allImages[centerImageIndex];
+//  left_Image = allImages[leftImageIndex];
+//  right_Image = allImages[rightImageIndex];
+//  center_Image = allImages[centerImageIndex];
+
+leftImage.src = /images.lenght Math.random();
+
 
 
   // stop after 25 clicks//
-  if(likeCounter > 4){
+  if(likeCounter > 10){
     leftImage.removeEventListener('click', handleClickOnLeftImage);
     rightImage.removeEventListener('click', handleClickOnRightImage);
     centerImage.removeEventListener('click', handleClickOnCenterImage);
 }
 }
 
+// need to finish right click than copy n paste n do center n left//
 function handleClickOnRightImage(event){
   // increment right image clicks
   console.log('clicked on right image');
@@ -84,17 +109,25 @@ function handleClickOnCenterImage(event){
   console.log('clicked on center image');
 }
 
- leftImage.addEventListener('click', handleClickOnLeftImage);
+// put them on a page//
 
- rightImage.addEventListener('click', handleClickOnRightImage);
 
- centerImage.addEventListener('click', handleClickOnCenterImage);
  
 // new images coming into play//
-new imageInfo('bag.jpg', 'starwars bag');
-new imageInfo('banana.jpg', 'banana');
-new imageInfo('bathroom.jpg', 'bathroom');
+new imageInfo('bag' , 'img/bag.jpg', 'starwars bag');
+new imageInfo('banana' , 'img/banana.jpg', 'banana');
+new imageInfo('bathroom' , 'img/bathroom.jpg', 'bathroom');
+new imageInfo('boots', 'img/boots.jpg', 'Boots');
+new imageInfo('breakfast', 'img/breakfast.jpg', 'Breakfast maker');
+new imageInfo('bubblegum', 'img/bubblegum.jpg', 'Meatball bubblegum');
 
 
 
+ 
+//==============making it clickable======================//
 
+leftImage.addEventListener('click', handleClickOnLeftImage);
+
+rightImage.addEventListener('click', handleClickOnRightImage);
+
+centerImage.addEventListener('click', handleClickOnCenterImage);
