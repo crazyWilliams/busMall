@@ -40,14 +40,21 @@ var allImages = [];
 
 var imageInfo = function(url, name){
   
-  this.image_url = url;
+  this.imageUrl = url;
   this.name = name;
   this.clicks = 0;
 
   allImages.push(this);
-
 };
-console.log(allImages);
+
+//==============================================================//
+//   Initialize the Page
+//==============================================================//
+
+new imageInfo('bag.jpg', 'starwars bag');
+new imageInfo('banana.jpg', 'banana');
+new imageInfo('bathroom.jpg', 'bathroom');
+
 
 
 
