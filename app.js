@@ -3,6 +3,8 @@
 /*
 build something that will 
 
+tracks voted pictures clicked counts
+
  - select 3 random phots
  - an array of 25 images(start with three img)
 XXX array of clicks [0, 0, 0]
@@ -15,11 +17,37 @@ XXX array of clicks [0, 0, 0]
 name: name of pic,
 }
   - listen for an event ('click')
- - randomly selected three photos from libary
+  while(votes < 25 )
+ - randomly selected three new photos from libary
  - display them side by side 
  - make pic's clickable
- -track those clicks 
+ -track those clicks (increment)
  -track how man times img is displayed on side to not repeat so much 
  - 
 
 */
+//========================================================//
+
+
+// global variables 
+// counter for num of clicks
+var likeCounter = 0;
+var allImages = [];
+
+//==========================================================//
+//   Constructor
+// =========================================================//
+
+var imageInfo = function(url, name){
+  
+  this.image_url = url;
+  this.name = name;
+  this.clicks = 0;
+
+  allImages.push(this);
+
+};
+console.log(allImages);
+
+
+
