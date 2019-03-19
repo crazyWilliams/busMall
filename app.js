@@ -50,32 +50,47 @@ var imageInfo = function(url, name){
 //==============================================================//
 //   Initialize the Page
 //==============================================================//
- var leftImage = document.getElementById('left_image');
+ var leftImage = document.getElementById('leftImagePosition');
  var rightImage = document.getElementById('right_image');
  var centerImage = document.getElementById('center_image');
 
 function handleClickOnLeftImage(event){
-  // increment left image clicks
-  console.log('clicked on left image')
+  //adding clicks
+  likeCounter++;
+  var rightImageIndex = Math.floor(Math.random() * allImages.length);
+  var leftImageIndex = Math.floor(Math.random() * allImages.length);
+  var centerImageIndex = Math.floor(Math.random() * allImages.length);
+  
+var left_Image = allImages[leftImageIndex];
+var right_Image = allImages[rightImageIndex];
+var center_Image = allImages[centerImageIndex];
+
+
+  // stop after 25 clicks//
+  if(likeCounter > 4){
+    leftImage.removeEventListener('click', handleClickOnLeftImage);
+    rightImage.removeEventListener('click', handleClickOnRightImage);
+    centerImage.removeEventListener('click', handleClickOnCenterImage);
+}
 }
 
 function handleClickOnRightImage(event){
   // increment right image clicks
-  console.log('clicked on right image')
+  console.log('clicked on right image');
 }
 
 function handleClickOnCenterImage(event){
   // increment center image clicks
-  console.log('clicked on center image')
+  console.log('clicked on center image');
 }
 
  leftImage.addEventListener('click', handleClickOnLeftImage);
 
- rightImage.addEventListener('click', handleClickOnRighImage);
+ rightImage.addEventListener('click', handleClickOnRightImage);
 
  centerImage.addEventListener('click', handleClickOnCenterImage);
  
-
+// new images coming into play//
 new imageInfo('bag.jpg', 'starwars bag');
 new imageInfo('banana.jpg', 'banana');
 new imageInfo('bathroom.jpg', 'bathroom');
