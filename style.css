@@ -1,7 +1,8 @@
 
 *{
   box-sizing: border-box;
-}
+  
+} 
 
 body {
   background-color: #e4db8e
@@ -13,30 +14,13 @@ header {
   width: 100%;
 }
 
-nav {
-  max-width:  900px;
-  margin: 0 auto;
-  overflow: hidden
-}
-
-nav ul {
-  margin: auto;
-  display: block;
-  max-width: 660px;
-}
-
-main{
-  max-width: 900px;
-  margin: 0 auto;
-  overflow: hidden;
-}
 
 main > *{
   float:left;
 }
 
 main > :nth-child(odd){
-  width:25%
+  width:20%;
 }
 
 main > :nth-child(2){
@@ -46,12 +30,19 @@ main > :nth-child(2){
 main ul, main li {
   padding: 0;
   margin: 10px 0;
-  /* background-color: rgb(63, 17, 189); */
+  background-color: rgb(63, 17, 189);
+}
+main ul{
+  background-color: #ce50df;
+  height: 650px;
 }
 
 aside{ 
   padding-left: 30px;
-  /* background-color: aqua; */
+  background-color: aqua;
+  margin: right;
+  float: right;
+  height: 670px;
 }
 
 
@@ -77,18 +68,26 @@ footer div {
   margin: 0 auto;
 }
 img {
-  /* float: left; */
-  width: auto;
+  float: left;
+  margin: 0 auto;
+  width: 50%;
   height: 200px;
+
 }
 
 section div {
+  /* position: center; */
   padding: 7px;
   box-sizing: border-box;
   float: left;
-   height: 350px; 
-   width: 50%;
+   height: 200px; 
+   width: 535px;
   margin: auto;
-  /* background-color: #18ad31; */
+  background-color: #18ad31;
 }
 
+#left_image_div {
+  background-color: black;
+  margin: auto;
+  position: sticky;
+}

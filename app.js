@@ -26,10 +26,14 @@ name: name of pic,
  - 
 
 */
-//========================================================//
 
-
+//==============================================================//
+//   
 // global variables 
+
+//==============================================================//
+
+
 // counter for num of clicks
 var likeCounter = 0;
 var allImages = [];
@@ -82,20 +86,14 @@ function handleClickOnLeftImage(){
   var rightImageIndex = Math.floor(Math.random() * allImages.length);
   var leftImageIndex = Math.floor(Math.random() * allImages.length);
   var centerImageIndex = Math.floor(Math.random() * allImages.length);
-  //==============================================================
-// var imgIndex = Math.floor(Math.random() * allImages.length);
-// imageInfo[i] = allImages[imgIndex];
-// allImages[i].src = imageInfo.filePath;
-// allImages[i].name = currentImage
-//=================================================================
-
+  
 leftImage.src = allImages[leftImageIndex].filePath;
 rightImage.src = allImages[rightImageIndex].filePath;
 centerImage.src = allImages[centerImageIndex].filePath;
-// rightImage.src = imageInfo.filePath;
+
 
   // stop after 25 clicks//
-  if(likeCounter > 10){
+  if(likeCounter > 24){
     leftImage.removeEventListener('click', handleClickOnLeftImage);
     rightImage.removeEventListener('click', handleClickOnRightImage);
     centerImage.removeEventListener('click', handleClickOnCenterImage);
@@ -143,8 +141,6 @@ if(likeCounter > 10){
   console.log('clicked on right image');
 }
 }
-
-// put them on a page//
 
 
  
