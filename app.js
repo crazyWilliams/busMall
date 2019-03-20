@@ -126,6 +126,12 @@ new imageInfo('bathroom' , 'images/bathroom.jpg', 'bathroom');
 new imageInfo('boots', 'images/boots.jpg', 'Boots');
 new imageInfo('breakfast', 'images/breakfast.jpg', 'Breakfast maker');
 new imageInfo('bubblegum', 'images/bubblegum.jpg', 'Meatball bubblegum');
+new imageInfo('chair', 'images/chair.jpg', 'Chair');
+new imageInfo('cthulhu', 'images/cthulhu.jpg', 'thulhu');
+new imageInfo('dog-duck', 'images/dog-duck.jpg', 'Dog Duck');
+new imageInfo('dragon', 'images/dragon.jpg', 'Dragon');
+new imageInfo('pen', 'images/pen.jpg', 'Pen');
+new imageInfo('pet-sweep', 'images/pet-sweep.jpg', 'Pet Sweep');
 
 
 
