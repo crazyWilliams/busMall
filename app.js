@@ -37,12 +37,13 @@ var allImagesOnPage = [];
 var currentImage;
 
 var leftImage = document.getElementById("leftImagePosition");
- var rightImage = document.getElementById('rightImagePosition');
+ var rightImage = document.getElementById("rightImagePosition");
  var centerImage = document.getElementById('centerImagePosition');
  var productList = document.getElementById('imagesList');
- allImagesOnPage.push(leftImage);
- allImagesOnPage.push(rightImage);
- allImagesOnPage.push(centerImage);
+//  var allImages = document.getElementById('allImages');
+//  allImagesOnPage.push(leftImage);
+//  allImagesOnPage.push(rightImage);
+//  allImagesOnPage.push(centerImage);
 
 //==========================================================//
 //   Constructor
@@ -55,6 +56,7 @@ var imageInfo = function(name, filePath, description){
   // this.timesClicked = 0;
   // this.description = description;
 allImages.push(this);
+
 };
 
 
@@ -62,13 +64,13 @@ allImages.push(this);
 //   Add list to page
 //==============================================================//
 
-function renderList (){
-  for (var m in allImages){
-    var imagesList = document.createElement('imagesList');
-    imagesList.textContent = allImages[m].timesClicked + ' votes for ' + allImages[m].description;
-    productList.appendChild(imagesList);
-  }
-};
+// function renderList (){
+//   for (var m in allImages){
+//     var imagesList = document.createElement('imagesList');
+//     imagesList.textContent = allImages[m].timesClicked + ' votes for ' + allImages[m].description;
+//     productList.appendChild(imagesList);
+//   }
+// };
 //==============================================================//
 //   Initialize the Page ( DOM's putting work on html)
 //==============================================================//
@@ -103,16 +105,43 @@ centerImage.src = allImages[centerImageIndex].filePath;
 
 }
 
+function handleClickOnRightImage(){
+  
+  likeCounter++;
+  var rightImageIndex = Math.floor(Math.random() * allImages.length);
+  var leftImageIndex = Math.floor(Math.random() * allImages.length);
+  var centerImageIndex = Math.floor(Math.random() * allImages.length);
 
-// need to finish right click than copy n paste n do center n left//
-function handleClickOnRightImage(event){
-  // increment right image clicks
+  leftImage.src = allImages[leftImageIndex].filePath;
+rightImage.src = allImages[rightImageIndex].filePath;
+centerImage.src = allImages[centerImageIndex].filePath;
+if(likeCounter > 10){
+  leftImage.removeEventListener('click', handleClickOnLeftImage);
+  rightImage.removeEventListener('click', handleClickOnRightImage);
+  centerImage.removeEventListener('click', handleClickOnCenterImage);
+  
   console.log('clicked on right image');
 }
 
-function handleClickOnCenterImage(event){
-  // increment center image clicks
-  console.log('clicked on center image');
+}
+
+function handleClickOnCenterImage(){
+  
+  likeCounter++;
+  var rightImageIndex = Math.floor(Math.random() * allImages.length);
+  var leftImageIndex = Math.floor(Math.random() * allImages.length);
+  var centerImageIndex = Math.floor(Math.random() * allImages.length);
+
+leftImage.src = allImages[leftImageIndex].filePath;
+rightImage.src = allImages[rightImageIndex].filePath;
+centerImage.src = allImages[centerImageIndex].filePath;
+if(likeCounter > 10){
+  leftImage.removeEventListener('click', handleClickOnLeftImage);
+  rightImage.removeEventListener('click', handleClickOnRightImage);
+  centerImage.removeEventListener('click', handleClickOnCenterImage);
+  
+  console.log('clicked on right image');
+}
 }
 
 // put them on a page//
@@ -131,7 +160,17 @@ new imageInfo('cthulhu', 'images/cthulhu.jpg', 'thulhu');
 new imageInfo('dog-duck', 'images/dog-duck.jpg', 'Dog Duck');
 new imageInfo('dragon', 'images/dragon.jpg', 'Dragon');
 new imageInfo('pen', 'images/pen.jpg', 'Pen');
-new imageInfo('pet-sweep', 'images/pet-sweep.jpg', 'Pet Sweep');
+new imageInfo('pet-sweep', 'images/pet-sweep.jpg', 'pet-sweep');
+new imageInfo('scissors', 'images/scissors.jpg', 'scissors');
+new imageInfo('shark', 'images/shark.jpg', 'shark');
+new imageInfo('sweep', 'images/sweep.png', 'sweep');
+new imageInfo('tauntaun', 'images/tauntaun.jpg', 'tauntaun');
+new imageInfo('unicorn', 'images/unicorn.jpg', 'unicorn');
+new imageInfo('usb', 'images/usb.gif', 'usb');
+new imageInfo('water-can', 'images/water-can.jpg', 'water-can');
+new imageInfo('wine-glass', 'images/wine-glass.jpg', 'wine-glass');
+
+
 
 
 
