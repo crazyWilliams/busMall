@@ -36,7 +36,7 @@ var allImages = [];
 var allImagesOnPage = [];
 var currentImage;
 
-var leftImage = document.getElementById('leftImagePosition');
+var leftImage = document.getElementById("leftImagePosition");
  var rightImage = document.getElementById('rightImagePosition');
  var centerImage = document.getElementById('centerImagePosition');
  var productList = document.getElementById('imagesList');
@@ -73,30 +73,36 @@ function renderList (){
 //   Initialize the Page ( DOM's putting work on html)
 //==============================================================//
  
-
-function handleClickOnLeftImage(event){
+function handleClickOnLeftImage(){
   //adding clicks
   
   likeCounter++;
   var rightImageIndex = Math.floor(Math.random() * allImages.length);
   var leftImageIndex = Math.floor(Math.random() * allImages.length);
   var centerImageIndex = Math.floor(Math.random() * allImages.length);
-  
-//  left_Image = allImages[leftImageIndex];
-//  right_Image = allImages[rightImageIndex];
-//  center_Image = allImages[centerImageIndex];
+  //==============================================================
+// var imgIndex = Math.floor(Math.random() * allImages.length);
+// imageInfo[i] = allImages[imgIndex];
+// allImages[i].src = imageInfo.filePath;
+// allImages[i].name = currentImage
+//=================================================================
 
-leftImage.src = /images.lenght Math.random();
-
-
+leftImage.src = allImages[leftImageIndex].filePath;
+rightImage.src = allImages[rightImageIndex].filePath;
+centerImage.src = allImages[centerImageIndex].filePath;
+// rightImage.src = imageInfo.filePath;
 
   // stop after 25 clicks//
   if(likeCounter > 10){
     leftImage.removeEventListener('click', handleClickOnLeftImage);
     rightImage.removeEventListener('click', handleClickOnRightImage);
     centerImage.removeEventListener('click', handleClickOnCenterImage);
+    
+
+  }
+
 }
-}
+
 
 // need to finish right click than copy n paste n do center n left//
 function handleClickOnRightImage(event){
@@ -114,12 +120,12 @@ function handleClickOnCenterImage(event){
 
  
 // new images coming into play//
-new imageInfo('bag' , 'img/bag.jpg', 'starwars bag');
-new imageInfo('banana' , 'img/banana.jpg', 'banana');
-new imageInfo('bathroom' , 'img/bathroom.jpg', 'bathroom');
-new imageInfo('boots', 'img/boots.jpg', 'Boots');
-new imageInfo('breakfast', 'img/breakfast.jpg', 'Breakfast maker');
-new imageInfo('bubblegum', 'img/bubblegum.jpg', 'Meatball bubblegum');
+new imageInfo('bag' , 'images/bag.jpg', 'starwars bag');
+new imageInfo('banana' , 'images/banana.jpg', 'banana');
+new imageInfo('bathroom' , 'images/bathroom.jpg', 'bathroom');
+new imageInfo('boots', 'images/boots.jpg', 'Boots');
+new imageInfo('breakfast', 'images/breakfast.jpg', 'Breakfast maker');
+new imageInfo('bubblegum', 'images/bubblegum.jpg', 'Meatball bubblegum');
 
 
 
