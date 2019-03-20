@@ -43,7 +43,7 @@ var currentImage;
 var leftImage = document.getElementById("leftImagePosition");
  var rightImage = document.getElementById("rightImagePosition");
  var centerImage = document.getElementById('centerImagePosition');
- var productList = document.getElementById('imagesList');
+ var productList = document.getElementById('allImages');
 //  var allImages = document.getElementById('allImages');
 //  allImagesOnPage.push(leftImage);
 //  allImagesOnPage.push(rightImage);
@@ -118,7 +118,7 @@ if(likeCounter > 10){
   rightImage.removeEventListener('click', handleClickOnRightImage);
   centerImage.removeEventListener('click', handleClickOnCenterImage);
   
-  console.log('clicked on right image');
+  console.log('clicked 25 times');
 }
 
 }
@@ -134,11 +134,12 @@ leftImage.src = allImages[leftImageIndex].filePath;
 rightImage.src = allImages[rightImageIndex].filePath;
 centerImage.src = allImages[centerImageIndex].filePath;
 if(likeCounter > 10){
+  
   leftImage.removeEventListener('click', handleClickOnLeftImage);
   rightImage.removeEventListener('click', handleClickOnRightImage);
   centerImage.removeEventListener('click', handleClickOnCenterImage);
   
-  console.log('clicked on right image');
+  console.log('clicked 25 times');
 }
 }
 
@@ -172,6 +173,9 @@ new imageInfo('wine-glass', 'images/wine-glass.jpg', 'wine-glass');
 
  
 //==============making it clickable======================//
+
+
+
 
 leftImage.addEventListener('click', handleClickOnLeftImage);
 
