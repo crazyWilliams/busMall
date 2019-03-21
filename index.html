@@ -9,7 +9,7 @@
       type="image/jpg" 
       href="https://www.pcsb.org/cms/lib/FL01903687/Centricity/Domain/178/school_bus222.png">
       <link rel="stylesheet" href="style.css">
-
+      <link rel="stylesheet" href="reset.css">
 
 </head>
 
@@ -49,12 +49,23 @@
 <section id= "allImages">
 <h1> Which one will you pick!?</h1>
 
-<div id="left_image_div">
+<ul>
+ <li>
   <img id="leftImagePosition" src="images/bag.jpg" alt="images">
 <h2 id="leftImageH2"> Left Image </h2>
-</div>
+</li>
+<li>
+    <img id="centerImagePosition" src="images/banana.jpg" alt="images">
+  <h2 id="centerImageH2"> Center Image </h2>
+  </li>
+  <li>
+      <img id="rightImagePosition" src="images/boots.jpg" alt="images">
+    <h2 id="rightImageH2"> Right Image </h2>
+    </li>
+</ul>
 
-<div id="center_image_div">
+
+<!-- <div id="center_image_div">
     <img id="centerImagePosition" 
 src="images/banana.jpg" alt="images">
     <h2 id="centerImageH2"> Center Image </h2>
@@ -64,11 +75,9 @@ src="images/banana.jpg" alt="images">
     <img id="rightImagePosition" 
 src="images/boots.jpg" alt="images">
     <h2 id="rightImageH2"> Right Image </h2>
-    </div>
-    
+    </div> -->
+    </section>
 
-   
-</section>
 <aside>
   <h2>Facts About Something </h2>
   <a></a>
@@ -76,7 +85,15 @@ src="images/boots.jpg" alt="images">
   <a></a>
 
 </aside>
+
+<section>
+    <canvas id="myChart" width="400" height="400"></canvas>
+</section>
+
 </main>
+
+
+
 
 <footer>
     <div>
@@ -86,5 +103,7 @@ src="images/boots.jpg" alt="images">
   <!-- <canvas id="myChart" width="400" height="400"></canvas> -->
   <script src="app.js"></script> 
   <!-- <script src="canvas.js"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js">    </script>
+  <script src="canvas.js"></script>
 </body>
 </html>
