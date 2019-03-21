@@ -103,3 +103,6 @@ img {
   margin: auto;
   position: sticky;
 } 
+canvas { 
+  color: #ce50df;
+}
