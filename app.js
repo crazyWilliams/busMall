@@ -1,31 +1,5 @@
 'use strict';
 
-/*
-build something that will 
-
-tracks voted pictures clicked counts
-
- - select 3 random photos -
- - an array of 25 images(start with three img)
-
-
- array of object, 
- -[{Pic}, {Pic}]
- - pic object:
-  {image url: "picture name.jpg,
-   clicks: 0,
-name: name of pic,
-}
-  - listen for an event ('click')
-  while(votes < 25 )
- - randomly selected three new photos from libary
- - display them side by side 
- - make pic's clickable
- -track those clicks (increment)
- -track how man times img is displayed on side to not repeat so much 
- - 
-
-*/
 
 //==============================================================//
 //   
@@ -45,10 +19,6 @@ var leftImage = document.getElementById("leftImagePosition");
  var rightImage = document.getElementById("rightImagePosition");
  var centerImage = document.getElementById('centerImagePosition');
  var productList = document.getElementById('allImages');
-//  var allImages = document.getElementById('allImages');
-//  allImagesOnPage.push(leftImage);
-//  allImagesOnPage.push(rightImage);
-//  allImagesOnPage.push(centerImage);
 
 //==========================================================//
 //   Constructor
@@ -82,7 +52,11 @@ centerImage.src = allImages[centerImageIndex].filePath;
 
 
 
-// Helpers and Handlers
+
+//==============================================================//
+// Handlers
+//==============================================================//
+
 function handleClickOnImage (clickEvent){
   if(event.target.tagName !== 'IMG'){
     console.log('click on an image');
@@ -90,6 +64,7 @@ function handleClickOnImage (clickEvent){
   }
 
   totalClicks++;
+  
   for( var i = 0; i < allImages.length; i++){
     if(event.target.src.includes(allImages[i].filePath)){
       console.log(`${allImages[i].name} was picked`);
@@ -97,24 +72,36 @@ function handleClickOnImage (clickEvent){
     }
   }
   pickThreeImagesAndIncrementAppeared();
-  if(totalClicks > 3){
+  if(totalClicks > 25){
    buildMyChart();
+   removeImage();
+   
+   var stringifyallImages = JSON.stringify(totalClicks);
+   localStorage.setItem('imageInfo', stringifyallImages);
   }
+}
+//=================================================================//
 
+// remove pictures after voting //
+
+
+function removeImage(){
+  var img_element = document.getElementById('allImages');
+  img_element.remove(img_element.selectedIndex);
 }
 
 //=================================================================//
-
 // Chartjs
+//=================================================================//
 function buildMyChart(){
 
   var ctx = document.getElementById('myChart').getContext('2d');
 
   var labels = [];
   var data = [];
-  for(var i = 0; i < allMarketSurveyItems.length; i++){
-    labels.push(allMarketSurveyItems[i].name);
-    data.push(Math.floor(100 *allMarketSurveyItems[i].clickCount / allMarketSurveyItems[i].appeared));
+  for(var i = 0; i < allImages.length; i++){
+    labels.push(allImages[i].name);
+    data.push(Math.floor(100 *allImages[i].clickCount / allImages[i].appeared));
   }
 
 
@@ -126,20 +113,33 @@ function buildMyChart(){
         label: '# of Votes',
         data: data,
         backgroundColor: [
-          'rgba(255, 99, 132, 0.2)',
-          'rgba(54, 162, 235, 0.2)',
-          'rgba(255, 206, 86, 0.2)',
-          'rgba(75, 192, 192, 0.2)',
-          'rgba(153, 102, 255, 0.2)',
-          'rgba(255, 159, 64, 0.2)'
+          'black',
+          'black',
+          'black',
+          'black',
+          'black',
+          'black',
+          'black',
+          'black',
+          'black',
+          'black',
+          'black',
+          'black',
+          'black',
+          'black',
+          'black',
+          'black',
+          'black',
+          'black',
+          'black',
+          'black',
+          'black',
+          'black',
+          'black',
+          'black',
         ],
         borderColor: [
-          'rgba(255, 99, 132, 1)',
-          'rgba(54, 162, 235, 1)',
-          'rgba(255, 206, 86, 1)',
-          'rgba(75, 192, 192, 1)',
-          'rgba(153, 102, 255, 1)',
-          'rgba(255, 159, 64, 1)'
+          
         ],
         borderWidth: 1
       }]
@@ -157,11 +157,6 @@ function buildMyChart(){
 
 }
 
-
-
-
-
-//Instantiating the page
 
 new imageInfo('bag' , 'images/bag.jpg', 'starwars bag');
 new imageInfo('banana' , 'images/banana.jpg', 'banana');
